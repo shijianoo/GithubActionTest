@@ -1,4 +1,4 @@
-name: .NET Framework Desktop CI
+name: 发布软件
 
 on:
   push:
