@@ -1,0 +1,33 @@
+name: .NET Framework Desktop CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env:
+      Solution_Name: GithubActionTest.sln
+      Project_Path: GithubActionTest/GithubActionTest.csproj
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Restore NuGet packages
+      run: nuget restore $env:Solution_Name
+
+    - name: Build solution
+      run: msbuild $env:Solution_Name /p:Configuration=Release
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: BuildOutput
+        path: GithubActionTest/bin/Release/
