@@ -24,6 +24,12 @@ jobs:
     - name: 列出 GITHUB_WORKSPACE 目录内容
       run: dir %GITHUB_WORKSPACE%
       shell: cmd
+
+    - name: 查看当前目录 (PowerShell)
+      run: |
+        echo "当前目录是 $PWD"
+        Get-Location
+
     # - name: 提取代码
     #   uses: actions/checkout@v4
 
