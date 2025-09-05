@@ -19,10 +19,11 @@ jobs:
     - name: 执行命令
       run: echo "Hello, World!"
 
-    - name: 打印当前路径
+    - name: 打印 GITHUB_WORKSPACE
       run: |
-       echo "当前目录: %CD%"
-       dir
+        echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+        dir $GITHUB_WORKSPACE
+
 
     # - name: 设置 MSBuild
     #   uses: microsoft/setup-msbuild@v2
