@@ -3,8 +3,6 @@ name: 发布软件
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
