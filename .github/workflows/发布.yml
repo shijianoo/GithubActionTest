@@ -13,16 +13,25 @@ jobs:
       Project_Path: GithubActionTest/GithubActionTest.csproj
 
     steps:
-    - name: 提取代码
-      uses: actions/checkout@v4
 
+      
     - name: 执行命令
       run: echo "Hello, World!"
 
-    - name: 打印 GITHUB_WORKSPACE
+    - name: 打印 GITHUB_WORKSPACE   1
       run: |
         echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
         dir $GITHUB_WORKSPACE
+
+    - name: 提取代码
+      uses: actions/checkout@v4
+
+
+    - name: 打印 GITHUB_WORKSPACE    2
+      run: |
+        echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+        dir $GITHUB_WORKSPACE
+
 
 
     # - name: 设置 MSBuild
