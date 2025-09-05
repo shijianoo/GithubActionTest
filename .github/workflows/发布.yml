@@ -19,6 +19,11 @@ jobs:
     - name: 执行命令
       run: echo "Hello, World!"
 
+    - name: 打印当前路径
+      run: |
+       echo "当前目录: %CD%"
+       dir
+
     # - name: 设置 MSBuild
     #   uses: microsoft/setup-msbuild@v2
 
