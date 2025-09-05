@@ -20,7 +20,7 @@ jobs:
 
     - name: 打印 GITHUB_WORKSPACE   1
       run: |
-        echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+        echo "GITHUB_WORKSPACE is $env:GITHUB_WORKSPACE"
 
     # - name: 提取代码
     #   uses: actions/checkout@v4
