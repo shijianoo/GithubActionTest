@@ -18,10 +18,11 @@ jobs:
     - name: 执行命令
       run: echo "Hello, World!"
 
-    - name: 打印 GITHUB_WORKSPACE   1
-      run: |
-        echo "GITHUB_WORKSPACE is $env:GITHUB_WORKSPACE"
-        dir $env:GITHUB_WORKSPACE
+    - name: 查看环境变量 GITHUB_WORKSPACE
+      run: echo "GITHUB_WORKSPACE is $env:GITHUB_WORKSPACE"
+      
+    - name: 列出 GITHUB_WORKSPACE 目录内容
+      run: dir $env:GITHUB_WORKSPACE
 
     # - name: 提取代码
     #   uses: actions/checkout@v4
