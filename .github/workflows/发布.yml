@@ -22,8 +22,8 @@ jobs:
       run: echo "GITHUB_WORKSPACE is $env:GITHUB_WORKSPACE"
       
     - name: 列出 GITHUB_WORKSPACE 目录内容
-      run: dir $env:GITHUB_WORKSPACE
-
+      run: dir %GITHUB_WORKSPACE%
+      shell: cmd
     # - name: 提取代码
     #   uses: actions/checkout@v4
 
