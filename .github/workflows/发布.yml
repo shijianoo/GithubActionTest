@@ -21,16 +21,15 @@ jobs:
     - name: 打印 GITHUB_WORKSPACE   1
       run: |
         echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
-        dir $GITHUB_WORKSPACE
 
-    - name: 提取代码
-      uses: actions/checkout@v4
+    # - name: 提取代码
+    #   uses: actions/checkout@v4
 
 
-    - name: 打印 GITHUB_WORKSPACE    2
-      run: |
-        echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
-        dir $GITHUB_WORKSPACE
+    # - name: 打印 GITHUB_WORKSPACE    2
+    #   run: |
+    #     echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+    #     dir $GITHUB_WORKSPACE
 
 
 
