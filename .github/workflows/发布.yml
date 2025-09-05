@@ -14,7 +14,6 @@ jobs:
 
     steps:
 
-      
     - name: 执行命令
       run: echo "Hello, World!"
 
@@ -29,21 +28,15 @@ jobs:
       run: dir %GITHUB_WORKSPACE%
       shell: cmd
 
-    # - name: 打印 GITHUB_WORKSPACE    2
-    #   run: |
-    #     echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
-    #     dir $GITHUB_WORKSPACE
 
+    - name: 设置 MSBuild
+      uses: microsoft/setup-msbuild@v2
 
+    - name: 构建解决方案
+      run: msbuild $env:Solution_Name /p:Configuration=Release
 
-    # - name: 设置 MSBuild
-    #   uses: microsoft/setup-msbuild@v2
-
-    # - name: 构建解决方案
-    #   run: msbuild $env:Solution_Name /p:Configuration=Release
-
-    # - name: 上传构建产物
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: BuildOutput
-    #     path: GithubActionTest/bin/Release/
+    - name: 上传构建产物
+      uses: actions/upload-artifact@v4
+      with:
+        name: 生成完成V2.1.2
+        path: GithubActionTest/bin/Release/
