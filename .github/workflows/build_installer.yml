@@ -2,17 +2,21 @@ name: 构建并编译安装包
 
 on:
   push:
-    branches: [ "master" ]
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
 
 env:
   SOFT_NAME: GithubActionTest
-  SOFT_VERSION: 1.0.0
+  SOFT_VERSION: 
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
+     - name: 设置版本号
+       run: echo "SOFT_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
      - name: 拉取代码
        uses: actions/checkout@v4
 
@@ -36,6 +40,8 @@ jobs:
         cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME="$env:SOFT_NAME" -DSOFT_VERSION="$env:SOFT_VERSION" -DSOFT_RELEASE_DIR="$($env:GITHUB_WORKSPACE)\GithubActionTest\bin\x64\Release"
         cmake --build Setup\build\installer --config Release --parallel
 
+
+
      - name: 创建 GitHub Release
        id: create_release
        uses: actions/create-release@v1
@@ -46,3 +52,11 @@ jobs:
          prerelease: false
        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+     - name: 上传安装包
+       uses: actions/upload-release-asset@v1
+       with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
+          asset_name: ${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
+          asset_content_type: application/octet-stream
