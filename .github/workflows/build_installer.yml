@@ -22,7 +22,7 @@ jobs:
         $version = "${{ github.ref_name }}" -replace "^v", ""
         echo "SOFT_VERSION=$version" >> $env:GITHUB_ENV
 
-     - name: 显示版本信息
+     - name: 打印版本信息
        run: |
         echo "软件名称: ${{ env.SOFT_NAME }}"
         echo "软件版本: ${{ env.SOFT_VERSION }}"
@@ -45,7 +45,7 @@ jobs:
      - name: 编译安装软件
        run: |
         cd Setup
-        cmake -B build\installer -S installer -DSOFT_NAME="${{ env.SOFT_NAME }}" -DSOFT_VERSION="${{ env.SOFT_VERSION }}" -DSOFT_RELEASE_DIR="GithubActionTest\bin\x64\Release"
+        cmake -B build\installer -S installer -DSOFT_NAME="${{ env.SOFT_NAME }}" -DSOFT_VERSION="${{ env.SOFT_VERSION }}" -DSOFT_RELEASE_DIR="${{ github.workspace }}GithubActionTest\bin\x64\Release"
         cmake --build build\installer --config Release --parallel
 
      - name: 创建 GitHub Release
