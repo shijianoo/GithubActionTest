@@ -1,4 +1,4 @@
-name: 构建并编译安装包
+name: 构建并发布安装包 (pack.bat)
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
      - name: 拉取代码
        uses: actions/checkout@v5
 
-     - name: 设置版本号
+     - name: 设置版本信息
        run: |
         $version = "${{ github.ref_name }}" -replace "^v", ""
         echo "SOFT_VERSION=$version" >> $env:GITHUB_ENV
@@ -39,7 +39,7 @@ jobs:
        shell: cmd
        run: call .\Setup\pack.bat %SOFT_NAME% %SOFT_VERSION% ${{ github.workspace }}\GithubActionTest\bin\x64\Release
 
-     - name: GitHub Release
+     - name: 发布 GitHub Release
        uses: softprops/action-gh-release@v2
        with:
          tag_name: ${{ github.ref_name }}
