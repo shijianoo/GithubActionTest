@@ -1,9 +1,10 @@
 name: 构建并编译安装包
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+#  push:
+#    tags:
+#      - 'v*'
 
 env:
   SOFT_NAME: GithubActionTest

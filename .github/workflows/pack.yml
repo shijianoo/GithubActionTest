@@ -1,0 +1,40 @@
+name: 构建并编译安装包
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  SOFT_NAME: GithubActionTest
+  SOFT_VERSION: 
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+     - name: 拉取代码
+       uses: actions/checkout@v5
+
+     - name: 设置版本号
+       run: |
+        $version = "${{ github.ref_name }}" -replace "^v", ""
+        echo "SOFT_VERSION=$version" >> $env:GITHUB_ENV
+
+     - name: 打印版本信息
+       run: |
+        echo "软件名称: ${{ env.SOFT_NAME }}"
+        echo "软件版本: ${{ env.SOFT_VERSION }}"
+
+     - name: 设置 MSBuild
+       uses: microsoft/setup-msbuild@v2
+       with:
+         msbuild-architecture: x64
+
+     - name: 编译程序
+       run: msbuild GithubActionTest\GithubActionTest.csproj -t:rebuild /p:Configuration=Release /p:Platform=x64
+
+     - name: 打包
+       shell: cmd
+       run: call .\Setup\pack.bat %SOFT_NAME% %SOFT_VERSION% ${{ github.workspace }}\GithubActionTest\bin\x64\Release
