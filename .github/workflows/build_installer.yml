@@ -33,7 +33,7 @@ jobs:
          msbuild-architecture: x64
 
      - name: 编译程序
-       run: msbuild GithubActionTest/GithubActionTest.csproj -t:rebuild /p:Configuration=Release /p:Platform=x64
+       run: msbuild GithubActionTest\GithubActionTest.csproj -t:rebuild /p:Configuration=Release /p:Platform=x64
 
      - name: 编译卸载软件
        run: |
@@ -45,7 +45,7 @@ jobs:
      - name: 编译安装软件
        run: |
         cd Setup
-        cmake -B build\installer -S installer -DSOFT_NAME="${{ env.SOFT_NAME }}" -DSOFT_VERSION="${{ env.SOFT_VERSION }}" -DSOFT_RELEASE_DIR="GithubActionTest/bin/x64/Release"
+        cmake -B build\installer -S installer -DSOFT_NAME="${{ env.SOFT_NAME }}" -DSOFT_VERSION="${{ env.SOFT_VERSION }}" -DSOFT_RELEASE_DIR="GithubActionTest\bin\x64\Release"
         cmake --build build\installer --config Release --parallel
 
      - name: 创建 GitHub Release
@@ -56,7 +56,7 @@ jobs:
          draft: false
          prerelease: false
          files: |
-          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
-          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
+          Setup\bin\${{ env.SOFT_VERSION }}\Release\${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
+          Setup\bin\${{ env.SOFT_VERSION }}\Release\${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
