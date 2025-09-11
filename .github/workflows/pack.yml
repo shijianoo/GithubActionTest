@@ -38,3 +38,14 @@ jobs:
      - name: 打包
        shell: cmd
        run: call .\Setup\pack.bat %SOFT_NAME% %SOFT_VERSION% ${{ github.workspace }}\GithubActionTest\bin\x64\Release
+
+     - name: GitHub Release
+       uses: softprops/action-gh-release@v2
+       with:
+         tag_name: ${{ github.ref_name }}
+         name: ${{ github.ref_name }}
+         files: |
+          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
+          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
+       env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
