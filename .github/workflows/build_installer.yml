@@ -54,7 +54,7 @@ jobs:
        with:
          tag_name: ${{ github.ref_name }}
          name: ${{ github.ref_name }}
-         body: "自动生成安装包，通过 CI/CD 构建"
+         body: "通过 GitHub Actions 构建"
          files: |
           Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
           Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
