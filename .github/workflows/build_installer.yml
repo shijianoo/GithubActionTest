@@ -40,4 +40,6 @@ jobs:
        uses: actions/upload-artifact@v4
        with:
          name: Installer
-         path: Setup/bin/$env:SOFT_VERSION/Release/${env:SOFT_NAME}_${env:SOFT_VERSION}_setup*.exe
+         path: |
+          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
+          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
