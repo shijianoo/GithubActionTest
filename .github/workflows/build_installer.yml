@@ -28,7 +28,7 @@ jobs:
 
      - name: 构建安装包
        run: |
-        cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME=AABBC -DSOFT_VERSION=1.0.0 -DSOFT_RELEASE_DIR=%GITHUB_WORKSPACE%\GithubActionTest\GithubActionTest\bin\x64\Release
+        cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME=AABBC -DSOFT_VERSION=1.0.0 -DSOFT_RELEASE_DIR=$env:GITHUB_WORKSPACE\GithubActionTest\GithubActionTest\bin\x64\Release
         cmake --build Setup\build\installer --config Release --parallel
 
      - name: Upload Installer Artifact
