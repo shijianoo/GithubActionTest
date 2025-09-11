@@ -56,7 +56,7 @@ jobs:
          draft: false
          prerelease: false
          files: |
-          Setup\bin\${{ env.SOFT_VERSION }}\Release\${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
-          Setup\bin\${{ env.SOFT_VERSION }}\Release\${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
+          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
+          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
