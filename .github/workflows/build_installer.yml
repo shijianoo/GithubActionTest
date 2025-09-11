@@ -12,7 +12,8 @@ jobs:
      - name: 拉取代码
        uses: actions/checkout@v4
 
-
+     - name: 编译主程序
+       run: msbuild
 
 
 
