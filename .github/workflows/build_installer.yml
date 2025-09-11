@@ -44,7 +44,7 @@ jobs:
 
      - name: 构建安装软件
        run: |
-        cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME=${{ env.SOFT_NAME }} -DSOFT_VERSION=${{ env.SOFT_VERSION }} -DSOFT_RELEASE_DIR="GithubActionTest/bin/x64/Release"
+        cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME=${{ env.SOFT_NAME }} -DSOFT_VERSION="${{ env.SOFT_VERSION }}" -DSOFT_RELEASE_DIR="GithubActionTest/bin/x64/Release"
         cmake --build Setup\build\installer --config Release --parallel
 
      - name: 创建 GitHub Release
