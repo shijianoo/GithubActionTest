@@ -54,6 +54,7 @@ jobs:
        with:
          tag_name: ${{ github.ref_name }}
          name: ${{ github.ref_name }}
+         body: "自动生成安装包，通过 CI/CD 构建完成。"
          draft: false
          prerelease: false
          files: |
