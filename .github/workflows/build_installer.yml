@@ -26,6 +26,11 @@ jobs:
         cmake -B Setup\build\uninstaller -S Setup\uninstaller -DSOFT_NAME=AABBC
         cmake --build Setup\build\uninstaller --config Release --parallel
 
+     - name: 构建安装包
+       run: |
+        cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME=AABBC -DVERSION=1.0.0 -DUNINSTALLER=%GITHUB_WORKSPACE%\GithubActionTest\GithubActionTest\bin\x64\Release
+        cmake --build Setup\build\installer --config Release --parallel
+
      - name: Upload Installer Artifact
        uses: actions/upload-artifact@v4
        with:
