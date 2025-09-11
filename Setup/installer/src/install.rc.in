@@ -1,0 +1,7 @@
+104		PNG		"..\\..\\resources\\ui_sprite.png"
+
+105		PNG		"..\\res\\logo.png"
+106		XML		"..\\res\\installer.xml"
+108		ICON	"..\\res\\installer.ico"
+
+110		ZIP		"@APP_ZIP@"

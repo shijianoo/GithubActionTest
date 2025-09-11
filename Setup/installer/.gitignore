@@ -1,0 +1,10 @@
+inc/config.h
+src/install.rc
+src/offline_runtime.rc
+src/online_runtime.rc
+
+res/ndp48-web.exe
+res/ndp48-x86-x64-allos-enu.exe
+res/Uninstaller.exe
+res/app.zip
+res/app.zip.temp

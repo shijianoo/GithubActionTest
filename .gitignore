@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Setup project exceptions - keep required type library files
+!Setup/**/*.tlb
+!Setup/**/*.tlh

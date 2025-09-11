@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="592,382" caption="0,0,0,382" bktrans="true">
+	<Font id="0" name="微软雅黑" size="12" default="true" />
+	<Font id="1" name="微软雅黑" size="14" />
+	<Font id="2" name="微软雅黑" size="24" />
+	<Font id="3" name="微软雅黑" size="16" />
+	<Font id="4" name="微软雅黑" size="20" />
+	<Font id="5" name="微软雅黑" size="14" bold="true" />
+	<VerticalLayout bkimage="res='104' restype='png' source='0,310,592,692'">
+		<TabLayout name="wizardTab">
+			<VerticalLayout>
+				<HorizontalLayout height="200">
+					<Control />
+					<Control padding="0,60,0,0" width="130" height="130" bkimage="res='105' restype='png'" />
+					<Control />
+				</HorizontalLayout>
+				<Label name="instinfo" font="1" height="22" padding="0,0,0,30" align="center" textcolor="0xFF666666"/>
+				<HorizontalLayout>
+					<Control />
+					<Button name="installBtn1" cursor="hand" width="140" height="36" bkcolor="0xFF2979FF" hotbkcolor="0xFF1A66EF" pushedbkcolor="0xFF1057CE" disabledbkcolor="0x902979ff" textcolor="0xFFFFFFFF" hottextcolor="0xFFFFFFFF" pushedtextcolor="0xFFFFFFFF" disabledtextcolor="0xFFFFFFFF" text="快速安装" />
+					<Control />
+				</HorizontalLayout>
+				<HorizontalLayout height="45">
+					<HorizontalLayout visible="true">
+						<CheckBox name="chkAgree" padding="30,1,0,0" textpadding="20,0,0,0" font="0" height="16" width="106" selectedimage="res='104' restype='png' source='132,0,148,16' dest='0,0,16,16'" selected="true" normalimage="res='104' restype='png' source='100,0,116,16' dest='0,0,16,16'" hotimage="res='104' restype='png' source='116,0,132,16' dest='0,0,16,16'" textcolor="0xFF333333" text="我已阅读并同意" />
+						<Button name="btnAgreement" padding="0,1,0,0" cursor="hand" text="《用户许可协议》" showhtml="true" textcolor="#FF0091FF" font="0" width="90" height="16" />
+					</HorizontalLayout>
+					<Button name="btnOptions" cursor="hand" width="80" height="16" padding="0,0,30,0" normalimage="res='104' restype='png' source='0,32,16,48' dest='0,-1,16,16'" text="自定义选项" textpadding="20,2,0,0" textcolor="0xFF0091FF" hottextcolor="0xFF800080" />
+				</HorizontalLayout>
+			</VerticalLayout>
+			<VerticalLayout>
+				<VerticalLayout height="310">
+					<HorizontalLayout>
+						<VerticalLayout width="210" padding="85,80,0,0">
+							<Label padding="0,0,0,15" height="30" font="4" textcolor="#ff000000" text="ShallowSea客户端平台" />
+							<Label height="25" font="1" textcolor="#ffa8a8a8" text="· 多仪器连接" />
+							<Label height="25" font="1" textcolor="#ffa8a8a8" text="· 多种数据导出格式" />
+							<Label height="25" font="1" textcolor="#ffa8a8a8" text="· 绘图曲线输出" />
+							<Label height="25" font="1" textcolor="#ffa8a8a8" text="· 自动仪器连接" />
+							<Label height="25" font="1" textcolor="#ffa8a8a8" text="· 文件管理" />
+							<Label height="25" font="1" textcolor="#ffa8a8a8" />
+						</VerticalLayout>
+						<Control padding="0,80,0,0" width="228" height="174" bkimage="res='104' restype='png' source='0,692,228,872'" />
+					</HorizontalLayout>
+				</VerticalLayout>
+				<VerticalLayout padding="40,0,40,0" height="45">
+					<Slider name="progressBar" height="8" min="0" max="100" mouse="false" forecolor="0xFF2979FF" forecolor2="0xFF2979FF" thumbsize="0,0" bkcolor="#FFE3E3E3" />
+					<HorizontalLayout height="35">
+						<Label font="0" name="progressState" width="400" textcolor="#ff555555" text="正在安装" />
+						<Control />
+						<Label font="0" name="progressPercent" width="60" align="right" textcolor="#ff555555" />
+					</HorizontalLayout>
+				</VerticalLayout>
+			</VerticalLayout>
+			<VerticalLayout padding="30,30,30,30" bkimage="res='104' restype='png' source='48,0,100,52' corner='20,20,20,20'" inset="40,30,40,30">
+				<VerticalLayout>
+					<HorizontalLayout height="30" padding="0,20,0,20">
+						<Label textcolor="#ff38404b" text="安装到:" width="50" />
+						<RichEdit name="installPath" font="0" textpadding="6,3,6,0" bkcolor="0xFFEDF7FF" text="C:\Program Files\SSTD" bordersize="1" bordercolor="0xFFC2E1F9" />
+						<Button name="btnBrowser" padding="5,0,0,0" text="浏览" cursor="hand" width="50" bordersize="1" bkcolor="0xFFEDF7FF" bordercolor="0xFFC2E1F9" hotbkcolor="0xFFE0F1FE" pushedbkcolor="0xFFD0E7F9" textcolor="0xFF060300" hottextcolor="0xFF060300" pushedtextcolor="0xFF060300" disabledtextcolor="0xFF060300" />
+					</HorizontalLayout>
+					<VerticalLayout>
+						<HorizontalLayout height="30">
+							<CheckBox name="chkShortCut" font="0" height="16" width="140" selectedimage="res='104' restype='png' source='132,0,148,16' dest='0,0,16,16'" selected="true" normalimage="res='104' restype='png' source='100,0,116,16' dest='0,0,16,16'" hotimage="res='104' restype='png' source='116,0,132,16' dest='0,0,16,16'" textcolor="0xFF333333" text="创建桌面快捷方式" />
+							<CheckBox name="chkMonitorAutoRun" height="16" padding="0,0,0,10"  font="0" width="165" selectedimage="res='104' restype='png' source='132,0,148,16' dest='0,0,16,16'" selected="true" normalimage="res='104' restype='png' source='100,0,116,16' dest='0,0,16,16'" hotimage="res='104' restype='png' source='116,0,132,16' dest='0,0,16,16'" textcolor="0xFF333333" text="开机自动启动仪器监听" />
+							
+						</HorizontalLayout>
+					</VerticalLayout>
+					<Control height="10" padding="0,0,0,20" bordersize="0,0,0,1" bordercolor="0xFFC2E1F9" />
+				</VerticalLayout>
+				<HorizontalLayout height="25">
+					<Control />
+					<Button name="closeOptionsBtn" text="返回" cursor="hand" font="0" width="50" height="25" bordersize="1" bkcolor="0xFFEDF7FF" bordercolor="0xFFC2E1F9" hotbkcolor="0xFFE0F1FE" pushedbkcolor="0xFFD0E7F9" textcolor="0xFF060300" hottextcolor="0xFF060300" pushedtextcolor="0xFF060300" disabledtextcolor="0xFF060300" />
+					<Button padding="10,0,0," name="installBtn2" text="安装" cursor="hand" font="0" width="50" height="25" bordersize="1" bkcolor="0xFF2979FF" hotbkcolor="0xFF1A66EF" pushedbkcolor="0xFF1057CE" disabledbkcolor="0x902979ff" textcolor="0xFFFFFFFF" hottextcolor="0xFFFFFFFF" pushedtextcolor="0xFFFFFFFF" disabledtextcolor="0xFFFFFFFF" />
+				</HorizontalLayout>
+			</VerticalLayout>
+			<VerticalLayout>
+				<HorizontalLayout height="210">
+					<Control />
+					<Control padding="0,60,0,0" width="130" height="130" bkimage="res='104' restype='png' source='0,48,130,178'" />
+					<Control />
+				</HorizontalLayout>
+				<Label font="1" padding="0,10,0,30" name="welcomeinfo" height="22" align="center" textcolor="0xFF666666"/>
+				<HorizontalLayout>
+					<Control />
+					<Button name="btnDone" text="完成" cursor="hand" width="140" height="36" bordersize="1" bkcolor="0xFFEDF7FF" bordercolor="0xFFC2E1F9" hotbkcolor="0xFFE0F1FE" pushedbkcolor="0xFFD0E7F9" textcolor="0xFF060300" hottextcolor="0xFF060300" pushedtextcolor="0xFF060300" disabledtextcolor="0xFF060300" />
+					<Control width="20" />
+					<Button name="runBtn" text="打开" cursor="hand" width="140" height="36" bkcolor="0xFF2979FF" hotbkcolor="0xFF1A66EF" pushedbkcolor="0xFF1057CE" textcolor="0xFFFFFFFF" hottextcolor="0xFFFFFFFF" pushedtextcolor="0xFFFFFFFF" disabledtextcolor="0xFFFFFFFF" />
+					<Control />
+				</HorizontalLayout>
+			</VerticalLayout>
+		</TabLayout>
+		<HorizontalLayout height="200" float="true" pos="0,26,576,50">
+			<Label name="title" padding="27,-10,0" font="0" textcolor="0xFF666666" />
+			<Button cursor="hand" padding="0,0,0,0" name="btnMin" width="16" height="16" normalimage="res='104' restype='png' source='0,16,16,32' " hotimage="res='104' restype='png'  source='16,16,32,32' " pushedimage="res='104' restype='png' source='32,16,48,32'" />
+			<Button cursor="hand" padding="10,0,10,0" name="btnClose" width="16" height="16" normalimage="res='104' restype='png' source='0,0,16,16' " hotimage="res='104' restype='png'  source='16,0,32,16'" pushedimage="res='104' restype='png' source='32,0,48,16'" />
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>
