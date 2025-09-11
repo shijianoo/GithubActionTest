@@ -14,7 +14,6 @@ jobs:
 
      - name: 构建卸载软件
        run: |
-        cd ./Setup
         cmake -B Setup\build\uninstaller -S Setup\uninstaller -DSOFT_NAME=AABBC
         cmake --build Setup\build\uninstaller --config Release
 
