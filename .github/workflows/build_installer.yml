@@ -52,8 +52,8 @@ jobs:
        uses: softprops/action-gh-release@v2
        with:
          tag_name: ${{ github.ref_name }}
-         name: Release ${{ github.ref_name }}
-         body: "Release ${{ github.ref_name }}"
+         name: Release111 ${{ github.ref_name }}
+         body: Release222 ${{ github.ref_name }}
          draft: false
          prerelease: false
          files: |
