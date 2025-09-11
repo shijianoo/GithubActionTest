@@ -55,6 +55,8 @@ jobs:
          release_name: Release ${{ github.ref_name }}
          draft: false
          prerelease: false
+       env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
      - name: 上传安装包
        uses: actions/upload-release-asset@v1
