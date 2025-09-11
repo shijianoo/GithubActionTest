@@ -12,10 +12,15 @@ jobs:
      - name: 拉取代码
        uses: actions/checkout@v4
 
+
+
+
+
+
      - name: 构建卸载软件
        run: |
         cmake -B Setup\build\uninstaller -S Setup\uninstaller -DSOFT_NAME=AABBC
-        cmake --build Setup\build\uninstaller --config Release
+        cmake --build Setup\build\uninstaller --config Release --parallel
 
      - name: Upload Installer Artifact
        uses: actions/upload-artifact@v4
