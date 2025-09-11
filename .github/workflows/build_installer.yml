@@ -15,11 +15,11 @@ jobs:
      - name: 构建卸载软件
        run: |
         cd ./Setup
-        cmake -B build\uninstaller -S uninstaller -DSOFT_NAME=AABBC
-        cmake --build build\uninstaller --config Release
+        cmake -B Setup\build\uninstaller -S Setup\uninstaller -DSOFT_NAME=AABBC
+        cmake --build Setup\build\uninstaller --config Release
 
      - name: Upload Installer Artifact
        uses: actions/upload-artifact@v4
        with:
          name: Uninstaller
-         path: bin/Release/Uninstaller.exe
+         path: Setup\bin\Release\Uninstaller.exe
