@@ -65,3 +65,5 @@ jobs:
           asset_path: Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
           asset_name: ${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
           asset_content_type: application/octet-stream
+       env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
