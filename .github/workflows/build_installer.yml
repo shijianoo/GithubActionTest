@@ -36,10 +36,13 @@ jobs:
         cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME="$env:SOFT_NAME" -DSOFT_VERSION="$env:SOFT_VERSION" -DSOFT_RELEASE_DIR="$($env:GITHUB_WORKSPACE)\GithubActionTest\bin\x64\Release"
         cmake --build Setup\build\installer --config Release --parallel
 
-     - name: Upload Installer Artifact
-       uses: actions/upload-artifact@v4
+     - name: 创建 GitHub Release
+       id: create_release
+       uses: actions/create-release@v1
        with:
-         name: Installer
-         path: |
-          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup_offline.exe
-          Setup/bin/${{ env.SOFT_VERSION }}/Release/${{ env.SOFT_NAME }}_${{ env.SOFT_VERSION }}_setup.exe
+         tag_name: ${{ github.ref_name }}
+         release_name: Release ${{ github.ref_name }}
+         draft: false
+         prerelease: false
+       env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
