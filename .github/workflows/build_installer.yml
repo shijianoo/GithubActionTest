@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "master" ]
 
+env:
+  SOFT_NAME: GithubActionTest
+  SOFT_VERSION: 1.0.0
+
 jobs:
   build:
     runs-on: windows-latest
@@ -23,13 +27,13 @@ jobs:
 
      - name: 构建卸载软件
        run: |
-        cmake -B Setup\build\uninstaller -S Setup\uninstaller -DSOFT_NAME=AABBC
+        cmake -B Setup\build\uninstaller -S Setup\uninstaller -DSOFT_NAME="$env:SOFT_NAME"
         cmake --build Setup\build\uninstaller --config Release --parallel
         Copy-Item -Path Setup\bin\Release\Uninstaller.exe -Destination Setup/installer/res/Uninstaller.exe -Force
 
      - name: 构建安装包
        run: |
-        cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME=GithubActionTest -DSOFT_VERSION=1.0.0 -DSOFT_RELEASE_DIR="$($env:GITHUB_WORKSPACE)\GithubActionTest\bin\x64\Release"
+        cmake -B Setup\build\installer -S Setup\installer -DSOFT_NAME="$env:SOFT_NAME" -DSOFT_VERSION="$env:SOFT_VERSION" -DSOFT_RELEASE_DIR="$($env:GITHUB_WORKSPACE)\GithubActionTest\bin\x64\Release"
         cmake --build Setup\build\installer --config Release --parallel
 
      - name: Upload Installer Artifact
