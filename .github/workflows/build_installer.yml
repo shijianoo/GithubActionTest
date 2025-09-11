@@ -1,0 +1,24 @@
+name: 构建并编译安装包
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+     - name: 拉取代码
+       uses: actions/checkout@v4
+
+     - name: 构建卸载软件
+       run: |
+        cd ./Setup
+        cmake -B "build\uninstaller" -S "uninstaller" -DSOFT_NAME=AABBC
+
+     - name: Upload Installer Artifact
+       uses: actions/upload-artifact@v4
+       with:
+         name: Uninstaller
+         path: bin/Release/Uninstaller.exe
