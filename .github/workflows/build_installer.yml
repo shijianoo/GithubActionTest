@@ -38,7 +38,7 @@ jobs:
      - name: 编译卸载软件
        run: |
         cd Setup
-        cmake -B build\uninstaller -S uninstaller -DSOFT_NAME="${{ env.SOFT_NAME }}
+        cmake -B build\uninstaller -S uninstaller -DSOFT_NAME="${{ env.SOFT_NAME }}"
         cmake --build build\uninstaller --config Release --parallel
         Copy-Item -Path bin\Release\Uninstaller.exe -Destination installer/res/Uninstaller.exe -Force
 
