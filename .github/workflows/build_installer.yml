@@ -15,7 +15,7 @@ jobs:
 
     steps:
      - name: 设置版本号
-      run: echo "SOFT_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+       run: echo "SOFT_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
      - name: 拉取代码
        uses: actions/checkout@v4
