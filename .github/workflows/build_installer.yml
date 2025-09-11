@@ -25,7 +25,7 @@ jobs:
        run: |
         cmake -B Setup\build\uninstaller -S Setup\uninstaller -DSOFT_NAME=AABBC
         cmake --build Setup\build\uninstaller --config Release --parallel
-        copy /Y "Setup\bin\Release\Uninstaller.exe" -Destination Setup/installer/res/Uninstaller.exe
+        Copy-Item -Path Setup\bin\Release\Uninstaller.exe -Destination Setup/installer/res/Uninstaller.exe -Force
 
      - name: 构建安装包
        run: |
