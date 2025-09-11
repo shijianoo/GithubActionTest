@@ -14,13 +14,12 @@ jobs:
 
      - name: Add msbuild to PATH
        uses: microsoft/setup-msbuild@v2
+       with:
+         msbuild-architecture: x64
 
      - name: 编译主程序
        shell: cmd
-       run: msbuild
-
-
-
+       run: msbuild GithubActionTest/GithubActionTest.csproj -t:rebuild /p:Configuration=Release /p:Platform=x64
 
      - name: 构建卸载软件
        run: |
