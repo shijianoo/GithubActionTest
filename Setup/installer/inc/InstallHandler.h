@@ -1,9 +1,6 @@
+#pragma once
 #include <string>
 #include "InstallWindow.h"
-
-
-using namespace std;
-
 
 class InstallHandler {
 private:

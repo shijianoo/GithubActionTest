@@ -2,8 +2,8 @@
 # 打包发布目录和必要文件到 app.zip
 
 # 确保必要变量存在
-if(NOT DEFINED SOFT_RELEASE_DIR)
-    message(FATAL_ERROR "SOFT_RELEASE_DIR 未定义")
+if(NOT DEFINED SOFT_RELEASE)
+    message(FATAL_ERROR "SOFT_RELEASE 未定义")
 endif()
 
 if(NOT DEFINED SOFT_NAME)
@@ -29,8 +29,8 @@ message(STATUS "开始打包所有资源到 ${APP_ZIP}")
 # 执行 7z 打包
 message("打包目录: ${pacg}")
 execute_process(
-    COMMAND 7z a "${APP_ZIP}" "${SOFT_RELEASE_DIR}/*" "${UNINSTALL_PATH}" "${FILEICON_PATH}"
-    WORKING_DIRECTORY "${SOFT_RELEASE_DIR}"
+    COMMAND 7z a "${APP_ZIP}" "${SOFT_RELEASE}/*" "${UNINSTALL_PATH}" "${FILEICON_PATH}"
+    WORKING_DIRECTORY "${SOFT_RELEASE}"
 )
 
 # 检查 zip 是否生成

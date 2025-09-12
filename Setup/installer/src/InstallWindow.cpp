@@ -1,10 +1,7 @@
 #include "InstallWindow.h"
 #include "config.h"
+#include "Helper.h"
 #include "InstallHandler.h"
-#include "helper.h"
-
-using namespace std;
-
 
 void InstallWindow::InitWindow() {
 	Window::InitWindow();

@@ -1,9 +1,9 @@
-#include "window.h"
-#include "helper.h"
-#include "FileCollector.h"
-#include "FileDeleter.h"
 #include <iostream>
 #include <format>
+#include "Window.h"
+#include "Helper.h"
+#include "FileCollector.h"
+#include "FileDeleter.h"
 
 #define HOMEPAGEINDEX 0										//主面的Index
 #define UNINSTALLINGPAGEINDEX 1								//卸载中页面的Index

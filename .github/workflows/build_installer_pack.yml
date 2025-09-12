@@ -37,7 +37,7 @@ jobs:
 
      - name: 打包
        shell: cmd
-       run: call .\Setup\pack.bat %SOFT_NAME% %SOFT_VERSION% ${{ github.workspace }}\GithubActionTest\bin\x64\Release
+       run: call .\Setup\pack.bat %SOFT_NAME% ${{ github.workspace }}\GithubActionTest\bin\x64\Release %SOFT_VERSION% 
 
      - name: 发布 GitHub Release
        uses: softprops/action-gh-release@v2

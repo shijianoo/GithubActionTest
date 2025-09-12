@@ -1,13 +1,10 @@
-#include "FileDeleter.h"
 #include <shlwapi.h>
 #include <tlhelp32.h>
 #include <psapi.h>
-#include "helper.h"
-#include <windows.h>
 #include <shlobj.h>
-
-#pragma comment(lib, "shlwapi.lib")
-#pragma comment(lib, "psapi.lib")
+#include <windows.h>
+#include "Helper.h"
+#include "FileDeleter.h"
 
 FileDeleter::FileDeleter()
     : m_isDeleting(false)

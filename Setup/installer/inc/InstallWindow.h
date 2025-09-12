@@ -1,11 +1,10 @@
 #pragma once
-
 #include <iostream>
 #include <thread>
 #include <filesystem>
-#include "Window.h"
-#include "helper.h"
 #include "config.h"
+#include "Window.h"
+#include "Helper.h"
 
 using namespace std::filesystem;
 

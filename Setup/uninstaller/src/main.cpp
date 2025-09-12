@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include "UnInstallWindow.h"
 #include <filesystem>
-#include "helper.h"
+#include "UnInstallWindow.h"
+#include "Helper.h"
 
 // ∆Ù∂Ø–∂‘ÿ≥Ã–Ú
 static int LaunchUninstaller()

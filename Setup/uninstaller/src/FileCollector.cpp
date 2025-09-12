@@ -1,6 +1,6 @@
-#include "FileCollector.h"
 #include <shlobj.h>
 #include <algorithm>
+#include "FileCollector.h"
 
 std::vector<FileItem> FileCollector::CollectFilesToDelete(const std::string& softwareName, const std::string& installPath)
 {

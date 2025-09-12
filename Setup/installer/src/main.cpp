@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
+#include "config.h"
 #include "cmdline.h"
 #include "InstallWindow.h"
 #include "InstallHandler.h"
-#include "config.h"
-#include "helper.h"
+#include "Helper.h"
 
 using namespace cmdline;
 

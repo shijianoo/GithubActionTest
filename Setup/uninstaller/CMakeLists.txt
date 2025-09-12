@@ -12,7 +12,7 @@ add_subdirectory(../3rd/duilib ${CMAKE_CURRENT_BINARY_DIR}/duilib_build)
 add_subdirectory(../common ${CMAKE_CURRENT_BINARY_DIR}/common_build)
 
 list(APPEND UNINSTALL_SOURCE_FILES
-    src/main.cpp
+    src/Main.cpp
     src/uninstall.rc
     src/UnInstallWindow.cpp
     src/RegistryHelper.cpp
@@ -22,7 +22,7 @@ list(APPEND UNINSTALL_SOURCE_FILES
 
 add_executable(${PROJECT_NAME} WIN32 ${UNINSTALL_SOURCE_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/inc)
-target_link_libraries(${PROJECT_NAME} DuiLib common)
+target_link_libraries(${PROJECT_NAME} DuiLib Common)
 target_compile_definitions(${PROJECT_NAME} PRIVATE UILIB_STATIC SOFT_NAME="${SOFT_NAME}")
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

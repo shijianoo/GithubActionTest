@@ -2,8 +2,8 @@
 # 用于检查打包所需文件是否存在
 
 # 检查发布目录是否存在
-if(NOT EXISTS "${SOFT_RELEASE_DIR}")
-    message(FATAL_ERROR "软件发布目录 ${SOFT_RELEASE_DIR} 不存在")
+if(NOT EXISTS "${SOFT_RELEASE}")
+    message(FATAL_ERROR "软件发布目录 ${SOFT_RELEASE} 不存在")
 endif()
 
 # 检查主程序 exe 是否存在

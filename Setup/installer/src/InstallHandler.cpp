@@ -1,9 +1,7 @@
-#include "config.h"
 #include "InstallHandler.h"
-#include "icoextra.h"
+#include "Helper.h"
+#include "config.h"
 #include "DotNetInstallServer.h"
-#include "helper.h"
-
 
 string InstallHandler::ExecuteInstall()
 {

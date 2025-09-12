@@ -3,18 +3,18 @@ set(CMAKE_CXX_STANDARD 20)
 project(Instaler)
 
 set(SOFT_NAME "" CACHE STRING "软件名称 (必填)")
+set(SOFT_RELEASE "" CACHE STRING "软件发布目录 (必填)")
 set(SOFT_VERSION "" CACHE STRING "软件版本 (必填)")
-set(SOFT_RELEASE_DIR "" CACHE STRING "软件发布目录 (必填)")
 
 # 检查用户是否传递
-foreach(var SOFT_NAME SOFT_VERSION SOFT_RELEASE_DIR)
+foreach(var SOFT_NAME SOFT_VERSION SOFT_RELEASE)
     if("${${var}}" STREQUAL "")
         message(FATAL_ERROR "必须指定 ${var}，例如: -D${var}=VALUE")
     endif()
 endforeach()
 
 # ---------------- 基本信息 ----------------
-set(APP_EXE_PATH "${SOFT_RELEASE_DIR}/${SOFT_NAME}.exe") #可执行文件路径
+set(APP_EXE_PATH "${SOFT_RELEASE}/${SOFT_NAME}.exe") #可执行文件路径
 set(UNINSTALL_PATH "${CMAKE_CURRENT_LIST_DIR}/res/Uninstaller.exe") #卸载应用程序路径
 set(FILEICON_PATH "${CMAKE_CURRENT_LIST_DIR}/res/sstdfile.ico") #SSTD数据文件图标路径
 set(ONLINE_RUNTIME_PATH "${CMAKE_CURRENT_LIST_DIR}/res/ndp48-web.exe") #在线运行时路径
@@ -38,18 +38,17 @@ add_subdirectory(../common ${CMAKE_CURRENT_BINARY_DIR}/common_build)
 
 # ---------------- 源文件 ----------------
 list(APPEND INSTALL_SOURCE_FILES 
-    src/main.cpp
+    src/Main.cpp
     ${INSTALL_RC}
     src/InstallWindow.cpp
     src/InstallHandler.cpp
-    src/icoextra.cpp
     src/DotNetInstallServer.cpp
 )
 
 # ---------------- INTERFACE 库管理公共设置 ----------------
 add_library(common_settings INTERFACE)
 target_include_directories(common_settings INTERFACE ${CMAKE_CURRENT_LIST_DIR}/inc)
-target_link_libraries(common_settings INTERFACE common DuiLib)
+target_link_libraries(common_settings INTERFACE DuiLib Common)
 target_compile_definitions(common_settings INTERFACE UILIB_STATIC ZLIB_WINAPI)
 
 # ---------------- 生成在线运行时安装程序 ----------------
@@ -68,24 +67,4 @@ target_link_libraries(${INSTALL_NAME_OFFLINE} common_settings)
 set_target_properties(${INSTALL_NAME_OFFLINE} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIRECTORY}
     LINK_FLAGS "/MANIFESTUAC:\"level='requireAdministrator' uiAccess='false'\""
-)
-
-# ---------------- 清理资源 ----------------
-add_custom_target(cleanup_resources ALL
-    COMMAND ${CMAKE_COMMAND} -E remove -f
-        "${UNINSTALL_PATH}"
-        "${ONLINE_RUNTIME_PATH}"
-        "${OFFLINE_RUNTIME_PATH}"
-        "${APP_ZIP}"
-        "${CONFIG_H}"
-        "${INSTALL_RC}"
-        "${ONLINE_RUNTIME_RC}"
-        "${OFFLINE_RUNTIME_RC}"
-    COMMENT "删除临时文件"
-)
-
-# 确保 cleanup 在两个可执行文件生成后再执行
-add_dependencies(cleanup_resources
-    ${INSTALL_NAME_ONLINE}
-    ${INSTALL_NAME_OFFLINE}
 )

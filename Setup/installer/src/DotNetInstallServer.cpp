@@ -1,5 +1,5 @@
-#include "DotNetInstallServer.h"
 #include <iostream>
+#include "DotNetInstallServer.h"
 
 bool DotNetInstallServer::Launch(const string& runTIme)
 {

@@ -1,11 +1,11 @@
-#include "UnInstallWindow.h"
-#include "helper.h"
-#include "RegistryHelper.h"
-#include "FileCollector.h"
-#include "FileDeleter.h"
 #include <iostream>
 #include <format>
 #include <Shlwapi.h>
+#include "UnInstallWindow.h"
+#include "Helper.h"
+#include "RegistryHelper.h"
+#include "FileCollector.h"
+#include "FileDeleter.h"
 
 void UnInstallWindow::InitWindow()
 {

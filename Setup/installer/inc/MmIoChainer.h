@@ -1,9 +1,9 @@
 #pragma once
-#include <Windows.h>
-#include <string>
-#include "IprogressObserver.h"
+#include <windows.h>
 #include <stdio.h>
 #include <iostream>
+#include <string>
+#include "IprogressObserver.h"
 
 #define MMIO_SUFFICIENT_SIZE_FOR_FIELD(size, field) \
     (m_dwDataSize >= (offsetof(MmioDataStructure, field) + sizeof(MmioDataStructure().field)))
