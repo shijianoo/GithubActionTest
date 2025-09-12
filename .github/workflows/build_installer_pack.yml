@@ -7,7 +7,7 @@ on:
 
 env:
   SOFT_NAME: GithubActionTest
-  SOFT_VERSION: 
+  SOFT_VERSION: UNDEFINED
 
 jobs:
   build:
