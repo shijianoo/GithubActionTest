@@ -36,7 +36,6 @@ jobs:
        run: msbuild GithubActionTest\GithubActionTest.csproj -t:rebuild /p:Configuration=Release /p:Platform=x64
 
      - name: 打包
-       shell: cmd
        run: Setup\pack.bat ${{ env.SOFT_NAME }} ${{ github.workspace }}\GithubActionTest\bin\x64\Release ${{ env.SOFT_VERSION }}
 
      - name: 发布 GitHub Release
